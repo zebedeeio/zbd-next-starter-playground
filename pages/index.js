@@ -1,113 +1,190 @@
+// =================================================
+// Welcome to NextJS ZEBEDEE Starter
+// =================================================
+//
+// The goal here is to showcase a simple example of
+// the @zbd/node library being used to interact with
+// the ZEBEDEE API on a NodeJS environment.
+
+// Check `/pages/api/wallet` to see how simple it is
+// to fetch/post information to the ZEBEDEE API
+
+// This index.js shows a simple way to fetch the
+// /api/wallet backend endpoint and showcase the
+// response data on the homepage.
+//
+// =================================================
+
+// Lib Imports
 import Head from 'next/head'
 import Image from 'next/image'
+import { PureComponent } from 'react'
 import { Inter } from 'next/font/google'
+
+// Styles
 import styles from '@/styles/Home.module.css'
 
+// Fonts
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>ZEBEDEE + Next.js Starter</title>
-        <meta name="description" content="Maintained by @ZEBEDEE" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-      </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
+// Component
+export default class ZBDNextJSStarter extends PureComponent {
+  state = {
+    wallet: {},
+    error: false,
+    isLoading: true,
+  };
+
+  async componentDidMount() {
+    await this.getWalletData();
+  }
+
+  // Format millisatoshis
+  formatSats = (msats) => {
+    // In production it is recommended to use a better lib such
+    // as BigNumber for handling big numbers in JavaScript
+    const number = parseInt(msats, 10);
+
+    // Remove last 3 digits and round up
+    const roundedNumber = Math.ceil(number / 1000);
+
+    // Add commas every 3 digits
+    const formattedNumber = roundedNumber
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+    return formattedNumber;
+  }
+
+  // Get Wallet Information
+  getWalletData = async () => {
+    const res = await fetch('/api/wallet');
+    const response = await res.json();
+    const { success, data } = response;
+
+    // Set error state if failed to fetch
+    if (!success) {
+      this.setState(({ error: true, isLoading: false }));
+    } else {
+      // Set success state + data
+      this.setState(({ wallet: data, isLoading: false, error: false  }));
+    }
+  }
+
+  render() {
+    const { wallet, isLoading, error } = this.state;
+
+    return (
+      <>
+        <Head>
+          <title>ZEBEDEE + Next.js Starter</title>
+          <meta name="description" content="Maintained by @ZEBEDEE" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" type="image/png" href="/favicon.png" />
+        </Head>
+        <main className={styles.main}>
+          <div className={styles.description}>
+            <p>
+              Get started by editing&nbsp;
+              <code className={styles.code}>pages/index.js</code>
+            </p>
+            <div>
+              <p>
+                {isLoading && (
+                  <>🔄&nbsp;</>
+                )}
+                {error && (
+                  <>❌&nbsp;</>
+                )}
+                {!isLoading && !error && (
+                  <>✅&nbsp;</>
+                )}
+                ZBD Project Wallet:&nbsp;
+                {isLoading && (
+                  <code className={styles.code}>Loading...</code>
+                )}
+                {error && (
+                  <code className={styles.code}>NOT CONNECTED</code>
+                )}
+                {!isLoading && !error && (
+                  <code className={styles.code}>
+                    {wallet && wallet.balance && this.formatSats(wallet.balance)} sats
+                  </code>
+                )}
+              </p>
+            </div>
+          </div>
+  
+          <div className={styles.center}>
+            <Image
+              className={styles.logo}
+              src="/zbd-nextjs.png"
+              alt="ZEBEDEE + Next.js"
+              width={185}
+              height={99.61538462}
+              priority
+            />
+          </div>
+  
+          <div className={styles.grid}>
             <a
-              href="https://zebedee.io"
+              href="https://docs.zebedee.io"
+              className={styles.card}
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
-              <Image
-                src="/zebedee.svg"
-                alt="ZEBEDEE Logo"
-                className={styles.zebedeeLogo}
-                width={100}
-                height={24}
-                priority
-              />
+              <h2 className={inter.className}>
+                Docs <span>-&gt;</span>
+              </h2>
+              <p className={inter.className}>
+                Detailed walkthroughs to get started with this kit.
+              </p>
+            </a>
+  
+            <a
+              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+              className={styles.card}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h2 className={inter.className}>
+                Learn <span>-&gt;</span>
+              </h2>
+              <p className={inter.className}>
+                Find in-depth information about ZEBEDEE features and&nbsp;API.
+              </p>
+            </a>
+  
+            <a
+              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+              className={styles.card}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h2 className={inter.className}>
+                Deploy <span>-&gt;</span>
+              </h2>
+              <p className={inter.className}>
+                Instantly deploy this ZEBEDEE starter kit to Vercel.
+              </p>
+            </a>
+  
+            <a
+              href="https://github.com/zebedeeio"
+              className={styles.card}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h2 className={inter.className}>
+                @zbd/node <span>-&gt;</span>
+              </h2>
+              <p className={inter.className}>
+                Learn more about the ZEBEDEE SDK for NodeJS.
+              </p>
             </a>
           </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/zbd-nextjs.png"
-            alt="ZEBEDEE + Next.js"
-            width={185}
-            height={99.61538462}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://docs.zebedee.io"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about ZEBEDEE features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              CHANGEME Learn about ZEBEDEE and our API offerings!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy this ZEBEDEE starter kit to Vercel.
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/zebedeeio"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              @zbd/node <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn more about the ZEBEDEE SDK for NodeJS.
-            </p>
-          </a>
-        </div>
-      </main>
-    </>
-  )
+        </main>
+      </>
+    )
+  }
 }
