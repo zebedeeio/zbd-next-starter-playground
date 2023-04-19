@@ -128,7 +128,7 @@ export default class ZBDNextJSStarter extends PureComponent {
   
           <div className={styles.grid}>
             <a
-              href="https://docs.zebedee.io"
+              href="https://github.com/zebedeeio/nextjs-zebedee-starter"
               className={styles.card}
               target="_blank"
               rel="noopener noreferrer"
@@ -142,7 +142,7 @@ export default class ZBDNextJSStarter extends PureComponent {
             </a>
   
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+              href="https://docs.zebedee.io/docs/quick-start"
               className={styles.card}
               target="_blank"
               rel="noopener noreferrer"
@@ -156,7 +156,7 @@ export default class ZBDNextJSStarter extends PureComponent {
             </a>
   
             <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+              href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzebedeeio%2Fnextjs-zebedee-starter&env=ZEBEDEE_API_KEY&envDescription=Your%20ZEBEDEE%20project%20API%20key&demo-title=ZEBEDEE%20%2B%20Next.js%20Starter&demo-description=Starter%20kit%20for%20using%20ZEBEDEE%20API%20with%20Next.js%20fullstack%20applications&demo-url=https%3A%2F%2Fnextjs-zebedee-starter.vercel.app%2F&demo-image=https%3A%2F%2Fi.imgur.com%2FNf8wRgv.png"
               className={styles.card}
               target="_blank"
               rel="noopener noreferrer"
@@ -170,7 +170,7 @@ export default class ZBDNextJSStarter extends PureComponent {
             </a>
   
             <a
-              href="https://github.com/zebedeeio"
+              href="https://www.npmjs.com/package/@zbd/node"
               className={styles.card}
               target="_blank"
               rel="noopener noreferrer"
