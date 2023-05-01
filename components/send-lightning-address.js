@@ -10,6 +10,7 @@ const DynamicJSONViewer = dynamic(() => import('react-json-view'), {
 
 export class SendLightningAddressModule extends PureComponent {
   state = {
+    error: '',
     address: '',
     isLoading: false,
     success: null,
@@ -19,18 +20,24 @@ export class SendLightningAddressModule extends PureComponent {
 
   // Handle Address Change
   handleAddressChange = (event) => this.setState(() => ({
-    address: event.target.value
+    address: event.target.value,
+    error: '',
+    success: null,
+    isLoading: false,
   }));
 
   // Handle Amount Change
   handleAmountChange = (event) => this.setState(() => ({
-    amount: event.target.value
+    amount: event.target.value,
+    error: '',
+    success: null,
+    isLoading: false,
   }));
 
   // Handle Send to Lightning Address
   handleSendToLightningAddress = async () => {
     const { address, amount } = this.state;
-    this.setState(() => ({ isLoading: true, data: {}, success: null }));
+    this.setState(() => ({ isLoading: true, data: {}, error: '', success: null }));
 
     const res = await fetch('/api/lightning-address/send', {
       method: 'POST',
@@ -40,14 +47,27 @@ export class SendLightningAddressModule extends PureComponent {
       }),
     });
 
-    const response = await res.json();
-    const { success, data } = response;
+    if (!res.ok) {
+      const error = await res.json();
+      const errorMessage = `Error ${error.error.status}: ${error.error.message}`;
 
-    this.setState(({ success, data, isLoading: false }));
+      this.setState(({
+        data: {},
+        isLoading: false,
+        error: errorMessage,
+        success: error.success || false,
+      }));
+    } else {     
+      // Fetch from API route
+      const response = await res.json();
+      
+      const { success, data } = response;
+      this.setState(({ success, data, isLoading: false }));
+    }
   }
 
   render() {
-    const { address, amount, isLoading, success, data } = this.state;
+    const { address, amount, isLoading, success, data, error } = this.state;
 
     return (
       <div className={styles.module}>
@@ -55,6 +75,7 @@ export class SendLightningAddressModule extends PureComponent {
           Send to Lightning Address
         </p>
         <code>Send Bitcoin directly to a Lightning Address.</code>
+        <div className={styles.divider} />
         <input  
           className={styles.input}
           value={address}
@@ -80,10 +101,10 @@ export class SendLightningAddressModule extends PureComponent {
             </p>
           </div>
         )}
-        {(!success && Object.keys(data).length > 0 ) && (
+        {(!success && error) && (
           <div className={styles.statusWrapper}>
             <p>
-              ❌ <code><b>Failed</b></code>
+              ❌ <code><b>{error}</b></code>
             </p>
           </div>
         )}

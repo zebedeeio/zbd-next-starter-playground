@@ -44,7 +44,7 @@ export class CreateChargeModule extends PureComponent {
     const response = await res.json();
     const { success, data } = response;
 
-    console.log({ datauri: data.invoice.uri, uri1: data.invoice.request })
+    // console.log({ datauri: data.invoice.uri, uri1: data.invoice.request })
     this.setState(({ success, data, isLoading: false }));
   }
 
@@ -60,6 +60,7 @@ export class CreateChargeModule extends PureComponent {
         <code>
           Creates a Lightning Address Charge QR code.
         </code>
+        <div className={styles.divider} />
         <input
           value={amount}
           placeholder='100 satoshis'

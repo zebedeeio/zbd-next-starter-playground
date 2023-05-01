@@ -18,7 +18,10 @@ export class ValidateLightningAddressModule extends PureComponent {
 
   // Handle Address Change
   handleAddressChange = (event) => this.setState(() => ({
-    address: event.target.value
+    address: event.target.value,
+    isLoading: false,
+    success: null,
+    data: {},
   }));
 
   // Handle Validate Address
@@ -33,10 +36,22 @@ export class ValidateLightningAddressModule extends PureComponent {
       }),
     });
 
-    const response = await res.json();
-    const { success, data } = response;
+    if (!res.ok) {
+      const error = await res.json();
+      const errorMessage = `Error ${error.error.status}: ${error.error.message}`;
 
-    this.setState(({ success, data, isLoading: false }));
+      this.setState(({
+        data: {},
+        isLoading: false,
+        error: errorMessage,
+        success: error.success || false,
+      }));
+    } else {
+      const response = await res.json();
+      const { success, data } = response;
+  
+      this.setState(({ success, data, isLoading: false, error: '' }));
+    }
   }
 
   render() {
@@ -48,6 +63,7 @@ export class ValidateLightningAddressModule extends PureComponent {
           Validate Lightning Address
         </p>
         <code>Check the validity of a Lightning Address.</code>
+        <div className={styles.divider} />
         <input className={styles.input} value={address} onChange={this.handleAddressChange} />
         <ModuleButton label={'Validate Address'} isLoading={isLoading} onClick={this.handleValidate} />
         {success && Object.keys(data).length > 0 && (

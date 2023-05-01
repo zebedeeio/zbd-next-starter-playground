@@ -17,6 +17,7 @@
 
 // Lib Imports
 import Head from 'next/head';
+import Link from 'next/link';
 import Image from 'next/image';
 import { PureComponent } from 'react';
 import { Inter } from 'next/font/google';
@@ -47,7 +48,11 @@ export default class ZBDNextJSStarter extends PureComponent {
               <code className={styles.code}>pages/index.js</code>
             </p>
             <div>
-              <WalletBalanceModule />
+              <p>
+                <Link href='/playground'>
+                  <b>Open ZBD Playground <span className={inter.className}>-&gt;</span></b>
+                </Link>
+              </p>
             </div>
           </div>
   

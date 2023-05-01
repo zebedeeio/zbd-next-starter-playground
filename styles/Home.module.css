@@ -252,19 +252,16 @@
 }
 
 .module {
-  background-color: #fff;
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-  border-radius: var(--border-radius);
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
   font-size: 0.85rem;
   z-index: 2;
   font-family: var(--font-mono);
-  padding: 1.5rem 2rem;
+  padding: 2rem 2rem;
   margin: 0;
   display: flex;
   flex-direction: column;
+  background-color: rgba(var(--callout-rgb), 1);
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  border-radius: var(--border-radius);
 }
 
 .module p {
@@ -295,7 +292,8 @@
 }
 
 .module .button {
-  background-color: rgba(214, 219, 220, 0.5);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
   padding: 1rem;
   width: 100%;
   cursor: pointer;
@@ -305,7 +303,7 @@
 }
 
 .module .button:hover {
-  background-color: rgba(214, 219, 220, 0.8);
+  background-color: rgba(255, 255, 255, 0.6);
   transition: 0.1s all ease-in-out;
 }
 
@@ -321,4 +319,11 @@
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 30px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(var(--callout-border-rgb), 0.3);
+  margin: 1.5rem 0 0.25rem 0;
 }

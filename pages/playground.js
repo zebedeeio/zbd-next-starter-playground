@@ -44,7 +44,7 @@ export default class ZBDNextJSStarter extends PureComponent {
         <main className={styles.main}>
           <div className={styles.description}>
             <p>
-              Playground Test Modules for <b>ZEBEDEE API</b>
+              Playground Modules for <b>ZEBEDEE API</b>
             </p>
             <div>
               <WalletBalanceModule />
