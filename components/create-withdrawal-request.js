@@ -8,7 +8,7 @@ import { QR } from './qr-code';
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
 
-export class CreateChargeModule extends PureComponent {
+export class CreateWithdrawalRequestModule extends PureComponent {
   state = {
     data: {},
     success: null,
@@ -26,16 +26,16 @@ export class CreateChargeModule extends PureComponent {
     amount: event.target.value
   }));
 
-  // Handle Create Charge
-  handleCreateCharge = async () => {
+  // Handle Create Withdrawal Request
+  handleCreateWithdrawalRequest = async () => {
     const { amount, description } = this.state;
     this.setState(() => ({ isLoading: true, data: {}, success: null }));
 
-    const res = await fetch('/api/charges', {
+    const res = await fetch('/api/withdrawal-requests', {
       method: 'POST',
       body: JSON.stringify({
         amount: `${amount}000`,
-        description: description || 'Pay me now!',
+        description: description || 'Claim your Bitcoin now!',
         expiresIn: 300,
       }),
     });
@@ -43,9 +43,6 @@ export class CreateChargeModule extends PureComponent {
     const response = await res.json();
     const { success, data } = response;
 
-    console.log({ response, data });
-
-    // console.log({ datauri: data.invoice.uri, uri1: data.invoice.request })
     this.setState(({ success, data, isLoading: false }));
   }
 
@@ -56,10 +53,10 @@ export class CreateChargeModule extends PureComponent {
     return (
       <div className={styles.module}>
         <p>
-          Create Charge
+          Create Withdrawal Request
         </p>
         <code>
-          Creates a Lightning Charge / Payment Request QR code.
+          Creates a Withdrawal Request QR code.
         </code>
         <div className={styles.divider} />
         <input
@@ -70,14 +67,14 @@ export class CreateChargeModule extends PureComponent {
         />
         <input
           value={description}
-          placeholder='Pay me now!'
+          placeholder='Give me Bitcoin now!'
           className={styles.input}
           onChange={this.handleDescriptionChange}
         />
         <ModuleButton
           isLoading={isLoading}
           label={'Submit'}
-          onClick={this.handleCreateCharge}
+          onClick={this.handleCreateWithdrawalRequest}
         />
         {(successAndHasData) && (
           <div className={styles.statusWrapper}>

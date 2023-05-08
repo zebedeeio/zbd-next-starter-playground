@@ -26,6 +26,16 @@ import { WalletBalanceModule } from '@/components/wallet-balance'
 import { SendLightningAddressModule } from '@/components/send-lightning-address'
 import { ValidateLightningAddressModule } from '@/components/validate-lightning-address'
 import { CreateChargeModule } from '@/components/create-payment-request'
+import { CreateWithdrawalRequestModule } from '@/components/create-withdrawal-request'
+import { DecodeChargeModule } from '@/components/decode-charge'
+import { SendGamertagPaymentModule } from '@/components/send-gamertag-payment'
+import { SendPaymentModule } from '@/components/send-payment'
+import { BTCUSDRateModule } from '@/components/btcusd-exchange-rate'
+import { IPAddressModule } from '@/components/is-supported-region'
+import { GetWithdrawalRequestModule } from '@/components/get-withdrawal-request'
+import { GetChargeModule } from '@/components/get-charge'
+import { GetPaymentModule } from '@/components/get-payment'
+import { GetGamertagPaymentModule } from '@/components/get-gamertag-payment'
 
 // Fonts
 const inter = Inter({ subsets: ['latin'] })
@@ -50,11 +60,48 @@ export default class ZBDNextJSStarter extends PureComponent {
               <WalletBalanceModule />
             </div>
           </div>
-  
-          <div className={styles.moduleGrid}>
-            <ValidateLightningAddressModule />
-            <SendLightningAddressModule />
-            <CreateChargeModule />
+
+          <div className={styles.mainGridWrapper}>
+            <h1>Charges</h1>
+            <div className={styles.moduleGrid}>
+              <CreateChargeModule />
+              <GetChargeModule />
+            </div>
+
+            <h1>Withdrawal Requests</h1>
+            <div className={styles.moduleGrid}>
+              <CreateWithdrawalRequestModule />
+              <GetWithdrawalRequestModule />
+            </div>
+
+            <h1>Lightning Address</h1>
+            <div className={styles.moduleGrid}>
+              <ValidateLightningAddressModule />
+              <SendLightningAddressModule />
+            </div>
+
+            <h1>Utilities</h1>
+            <div className={styles.moduleGrid}>
+              <BTCUSDRateModule />
+              <IPAddressModule />
+            </div>
+
+            <h1>Decode Payment Requests</h1>
+            <div className={styles.moduleGrid}>
+              <DecodeChargeModule />
+            </div>
+
+            <h1>Gamertag</h1>
+            <div className={styles.moduleGrid}>
+              <SendGamertagPaymentModule />
+              <GetGamertagPaymentModule />
+            </div>
+
+            <h1>Payments</h1>
+            <div className={styles.moduleGrid}>
+              <SendPaymentModule />
+              <GetPaymentModule />
+            </div>
           </div>
         </main>
       </>

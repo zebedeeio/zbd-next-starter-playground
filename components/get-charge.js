@@ -8,76 +8,55 @@ import { QR } from './qr-code';
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
 
-export class CreateChargeModule extends PureComponent {
+export class GetChargeModule extends PureComponent {
   state = {
+    id: '',
     data: {},
     success: null,
-    description: '',
     isLoading: false,
   };
 
-  // Handle Description Change
-  handleDescriptionChange = (event) => this.setState(() => ({
-    description: event.target.value
+  // Handle ID Change
+  handleIdChange = (event) => this.setState(() => ({
+    id: event.target.value
   }));
 
-  // Handle Amount Change
-  handleAmountChange = (event) => this.setState(() => ({
-    amount: event.target.value
-  }));
-
-  // Handle Create Charge
-  handleCreateCharge = async () => {
-    const { amount, description } = this.state;
+  // Handle Get Charge
+  handleGetCharge = async () => {
+    const { id } = this.state;
     this.setState(() => ({ isLoading: true, data: {}, success: null }));
 
-    const res = await fetch('/api/charges', {
-      method: 'POST',
-      body: JSON.stringify({
-        amount: `${amount}000`,
-        description: description || 'Pay me now!',
-        expiresIn: 300,
-      }),
-    });
+    const res = await fetch(`/api/charges?chargeId=${id}`);
 
     const response = await res.json();
     const { success, data } = response;
 
-    console.log({ response, data });
-
-    // console.log({ datauri: data.invoice.uri, uri1: data.invoice.request })
     this.setState(({ success, data, isLoading: false }));
   }
 
   render() {
-    const { amount, description, isLoading, success, data } = this.state;
+    const { id, isLoading, success, data } = this.state;
     const successAndHasData = success && data && Object.keys(data).length > 0;
 
     return (
       <div className={styles.module}>
         <p>
-          Create Charge
+          Get Charge
         </p>
         <code>
-          Creates a Lightning Charge / Payment Request QR code.
+          Gets the details of a Charge by ID.
         </code>
         <div className={styles.divider} />
         <input
-          value={amount}
-          placeholder='100 satoshis'
+          value={id}
+          placeholder='a123b258-bbaa-0047-b104-57d613a7b284'
           className={styles.input}
-          onChange={this.handleAmountChange}
-        />
-        <input
-          value={description}
-          placeholder='Pay me now!'
-          className={styles.input}
-          onChange={this.handleDescriptionChange}
+          onChange={this.handleIdChange}
         />
         <ModuleButton
           isLoading={isLoading}
           label={'Submit'}
-          onClick={this.handleCreateCharge}
+          onClick={this.handleGetCharge}
         />
         {(successAndHasData) && (
           <div className={styles.statusWrapper}>

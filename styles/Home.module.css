@@ -316,7 +316,7 @@
   width: 100%;
   margin: 2rem 0;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 30px;
 }
@@ -326,4 +326,14 @@
   height: 1px;
   background: rgba(var(--callout-border-rgb), 0.3);
   margin: 1.5rem 0 0.25rem 0;
+}
+
+/* .mainGridWrapper {} */
+
+.mainGridWrapper h1 {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 5rem 0 0 0;
+  padding: 0;
 }

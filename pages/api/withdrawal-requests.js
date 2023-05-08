@@ -24,8 +24,8 @@ export default async function handler(req, res) {
         description,
       }
 
-      // Creating Charge / Payment Request
-      const result = await zbd.createCharge(payload);
+      // Creating Withdrawal Request
+      const result = await zbd.createWithdrawalRequest(payload);
 
       // Returning JSON payload
       return res.status(200).json({ ...result });
@@ -38,10 +38,10 @@ export default async function handler(req, res) {
 
     try {
       // Deconstruct query
-      const { chargeId } = req.query;
+      const { withdrawalRequestId } = req.query;
 
-      // Get Charge
-      const result = await zbd.getCharge(chargeId);
+      // Get Withdrawal Request
+      const result = await zbd.getWithdrawalRequest(withdrawalRequestId);
 
       // Returning JSON payload
       return res.status(200).json({ ...result });

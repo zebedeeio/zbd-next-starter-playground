@@ -66,7 +66,7 @@ export class ValidateLightningAddressModule extends PureComponent {
         <div className={styles.divider} />
         <input className={styles.input} value={address} onChange={this.handleAddressChange} />
         <ModuleButton label={'Validate Address'} isLoading={isLoading} onClick={this.handleValidate} />
-        {success && Object.keys(data).length > 0 && (
+        {success && data && Object.keys(data).length > 0 && (
           <>
             <div className={styles.statusWrapper}>
               {data.valid ? (

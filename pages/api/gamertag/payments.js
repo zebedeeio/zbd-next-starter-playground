@@ -1,36 +1,33 @@
 import { getZBD } from '@/services/zbd';
+import { cleanup } from '@/utils/cleanup';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    // Get zbd client
-    const { zbd } = getZBD(res);
-
     try {
-      // Deconstruct body
+      // Get zbd client
+      const { zbd } = getZBD(res);
+
+      // Deconstruct request body
       const {
         amount,
-        expiresIn,
-        internalId,
-        callbackUrl,
+        gamertag,
         description,
       } = JSON.parse(req.body);
 
       // Construct payload
-      const payload = {
+      const payload = cleanup({
         amount,
-        expiresIn,
-        internalId,
-        callbackUrl,
+        gamertag,
         description,
-      }
+      });
 
-      // Creating Charge / Payment Request
-      const result = await zbd.createCharge(payload);
+      // Sending ZBD Gamertag Payment
+      const data = await zbd.sendGamertagPayment(payload);
 
       // Returning JSON payload
-      return res.status(200).json({ ...result });
+      return res.status(200).json({ ...data });
     } catch (error) {
-      return res.status(400).json({ success: false, message: error.message });
+      return res.status(400).json({ success: false, error });
     }
   } else if (req. method === 'GET') {
     // Get zbd client
@@ -38,10 +35,10 @@ export default async function handler(req, res) {
 
     try {
       // Deconstruct query
-      const { chargeId } = req.query;
+      const { paymentId } = req.query;
 
       // Get Charge
-      const result = await zbd.getCharge(chargeId);
+      const result = await zbd.getGamertagTransaction(paymentId);
 
       // Returning JSON payload
       return res.status(200).json({ ...result });

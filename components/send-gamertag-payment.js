@@ -4,21 +4,21 @@ import { PureComponent } from 'react';
 import styles from '@/styles/Home.module.css'
 
 // Components
-import { QR } from './qr-code';
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
 
-export class CreateChargeModule extends PureComponent {
+export class SendGamertagPaymentModule extends PureComponent {
   state = {
     data: {},
     success: null,
-    description: '',
+    gamertag: '',
+    amount: '',
     isLoading: false,
-  };
+  }; 
 
   // Handle Description Change
-  handleDescriptionChange = (event) => this.setState(() => ({
-    description: event.target.value
+  handleGamertagChange = (event) => this.setState(() => ({
+    gamertag: event.target.value
   }));
 
   // Handle Amount Change
@@ -26,17 +26,17 @@ export class CreateChargeModule extends PureComponent {
     amount: event.target.value
   }));
 
-  // Handle Create Charge
-  handleCreateCharge = async () => {
-    const { amount, description } = this.state;
+  // Handle Send Gamertag Payment
+  handleSendGamertagPayment = async () => {
+    const { amount, gamertag } = this.state;
     this.setState(() => ({ isLoading: true, data: {}, success: null }));
 
-    const res = await fetch('/api/charges', {
+    const res = await fetch('/api/gamertag/payments', {
       method: 'POST',
       body: JSON.stringify({
         amount: `${amount}000`,
-        description: description || 'Pay me now!',
-        expiresIn: 300,
+        gamertag: gamertag,
+        description: 'ZEBEDEE API is fast!',
       }),
     });
 
@@ -50,16 +50,16 @@ export class CreateChargeModule extends PureComponent {
   }
 
   render() {
-    const { amount, description, isLoading, success, data } = this.state;
+    const { amount, gamertag, isLoading, success, data } = this.state;
     const successAndHasData = success && data && Object.keys(data).length > 0;
 
     return (
       <div className={styles.module}>
         <p>
-          Create Charge
+          Send ZBD Gamertag Payment
         </p>
         <code>
-          Creates a Lightning Charge / Payment Request QR code.
+          Sends a Bitcoin payment to a ZBD Gamertag instantly.
         </code>
         <div className={styles.divider} />
         <input
@@ -69,15 +69,15 @@ export class CreateChargeModule extends PureComponent {
           onChange={this.handleAmountChange}
         />
         <input
-          value={description}
-          placeholder='Pay me now!'
+          value={gamertag}
+          placeholder='andre@zbd.gg'
           className={styles.input}
-          onChange={this.handleDescriptionChange}
+          onChange={this.handleGamertagChange}
         />
         <ModuleButton
           isLoading={isLoading}
           label={'Submit'}
-          onClick={this.handleCreateCharge}
+          onClick={this.handleSendGamertagPayment}
         />
         {(successAndHasData) && (
           <div className={styles.statusWrapper}>
@@ -92,9 +92,6 @@ export class CreateChargeModule extends PureComponent {
               ❌ <code><b>Failed</b></code>
             </p>
           </div>
-        )}
-        {successAndHasData && (
-          <QR value={data.invoice.uri} />
         )}
         {successAndHasData && (
           <JSONViewer data={data} />

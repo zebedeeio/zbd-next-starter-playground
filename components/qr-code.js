@@ -1,11 +1,11 @@
 import QRCode from 'react-qr-code';
 
-export const QR = (value) => (
+export const QR = ({ value }) => (
   <div style={{
     maxWidth: 130,
     width: '100%',
     height: 'auto',
-    margin: '0 auto',
+    margin: '0 auto 20px auto',
   }}>
     <QRCode
       size={256}

@@ -94,7 +94,7 @@ export class SendLightningAddressModule extends PureComponent {
           isLoading={isLoading}
           onClick={this.handleSendToLightningAddress}
         />
-        {(success && Object.keys(data).length > 0 ) && (
+        {(success && data && Object.keys(data).length > 0 ) && (
           <div className={styles.statusWrapper}>
             <p>
               ✅ <code><b>Sent</b></code>
