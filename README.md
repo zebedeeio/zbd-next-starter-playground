@@ -42,7 +42,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the project page by modifying `pages/index.js`. There is additional comments throughout this file as well. The page should auto-update as you edit the file. Any JS page inside of `pages` are treated as React components that can be rendered on the application. 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) and effectively make up your project's backend APIs.
+Specifically, check out `/pages/index.js` and `/pages/playground.js` as they are the two main pages available in this starter kit.
+
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) and effectively make up your project's backend APIs. The backend API is using the []`@zbd/node`](https://github.com/zebedeeio/zbd-node) SDK library for Node.js to interact with the ZEBEDEE API.
+
+The main goal for this starter kit is to provide ample resources around source code that can be used to speed up your development of ZEBEDEE-powered applications.
 
 ## Learn More
 
@@ -59,6 +63,6 @@ To learn more about Next.js, take a look at the following resources:
 
 ## Deploy on Vercel
 
-The easiest way to deploy this project is to use the Vercel Deploy button below.
+The easiest way to deploy this project is to use the Vercel Deploy button below and pass your ZEBEDEE API Key in the settings. This will spin up an instance of the Dev Playground connected to YOUR ZEBEDEE account.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzebedeeio%2Fnextjs-zebedee-starter&env=ZEBEDEE_API_KEY&envDescription=Your%20ZEBEDEE%20project%20API%20key&demo-title=ZEBEDEE%20%2B%20Next.js%20Starter&demo-description=Starter%20kit%20for%20using%20ZEBEDEE%20API%20with%20Next.js%20fullstack%20applications&demo-url=https%3A%2F%2Fnextjs-zebedee-starter.vercel.app%2F&demo-image=https%3A%2F%2Fi.imgur.com%2FNf8wRgv.png)

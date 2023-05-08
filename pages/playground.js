@@ -91,7 +91,7 @@ export default class ZBDNextJSStarter extends PureComponent {
               <DecodeChargeModule />
             </div>
 
-            <h1>Gamertag</h1>
+            <h1>ZBD Gamertag</h1>
             <div className={styles.moduleGrid}>
               <SendGamertagPaymentModule />
               <GetGamertagPaymentModule />
