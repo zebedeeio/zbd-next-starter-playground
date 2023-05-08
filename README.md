@@ -1,7 +1,7 @@
 <h1 align='center'>ZEBEDEE Next.js Dev Playground</h1>
 
 <div align='center'>
-<img width='700' src='https://i.imgur.com/AO87Pz0.png' />
+<img width='900' src='https://i.imgur.com/AO87Pz0.png' />
 </div>
 
 <div align='center'>
@@ -10,7 +10,7 @@ Developer Playground for testing the ZEBEDEE API
 
 <br />
 
-[![bitcoin ln payments](https://img.shields.io/badge/Bitcoin%20Lightning-Payments-orange?style=for-the-badge&logo=bitcoin)](https://www.npmjs.com/package/@zbd/node)
+[![bitcoin ln payments](https://img.shields.io/badge/Bitcoin%20Lightning-Payments-orange?style=for-the-badge&logo=bitcoin)](https://zebedee.io)
 <br/>
 
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zebedeeio/zbd-next-starter-playground/blob/HEAD/LICENSE.md) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/zebedeeio/zbd-next-starter-playground/blob/HEAD/CONTRIBUTING.md#pull-requests)
