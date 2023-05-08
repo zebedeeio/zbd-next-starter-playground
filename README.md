@@ -1,9 +1,8 @@
 <h1 align='center'>ZEBEDEE Next.js Dev Playground</h1>
 
 <div align='center'>
-<img width='500' src='https://i.imgur.com/AO87Pz0.png' />
+<img width='700' src='https://i.imgur.com/AO87Pz0.png' />
 </div>
-<br />
 
 <div align='center'>
 
