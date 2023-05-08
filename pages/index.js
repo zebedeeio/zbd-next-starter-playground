@@ -36,10 +36,23 @@ export default class ZBDNextJSStarter extends PureComponent {
     return (
       <>
         <Head>
-          <title>ZEBEDEE + Next.js Starter</title>
-          <meta name="description" content="Maintained by @ZEBEDEE" />
+          <title>ZEBEDEE + Next.js Starter Kit - ZEBEDEE API</title>
+          <meta name="description" content="Open source starter kit for fullstack applications built on Next.js framework using ZEBEDEE for instant global payments." />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" type="image/png" href="/favicon.png" />
+
+          <meta property="og:url" content="https://playground.dev.zebedee.cloud" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="ZEBEDEE + Next.js Starter Kit - ZEBEDEE API" />
+          <meta property="og:description" content="Open source starter kit for fullstack applications built on Next.js framework using ZEBEDEE for instant global payments." />
+          <meta property="og:image" content="https://i.imgur.com/B8TuFvL.png" />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="playground.dev.zebedee.cloud" />
+          <meta property="twitter:url" content="https://playground.dev.zebedee.cloud" />
+          <meta name="twitter:title" content="ZEBEDEE + Next.js Starter Kit - ZEBEDEE API" />
+          <meta name="twitter:description" content="Open source starter kit for fullstack applications built on Next.js framework using ZEBEDEE for instant global payments." />
+          <meta name="twitter:image" content="https://i.imgur.com/B8TuFvL.png" />
         </Head>
         <main className={styles.main}>
           <div className={styles.description}>
