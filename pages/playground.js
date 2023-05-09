@@ -37,6 +37,8 @@ import { GetChargeModule } from '@/components/get-charge'
 import { GetPaymentModule } from '@/components/get-payment'
 import { GetGamertagPaymentModule } from '@/components/get-gamertag-payment'
 
+import { SocialHeadTags } from '@/components/social-head-tags'
+
 // Fonts
 const inter = Inter({ subsets: ['latin'] })
 
@@ -46,23 +48,12 @@ export default class ZBDNextJSStarter extends PureComponent {
     return (
       <>
         <Head>
-          <title>Dev Playground - ZEBEDEE API</title>
-          <meta name="description" content="Open source starter kit for fullstack applications including a Dev Playground showcasing the many features available for Payins and Payouts on the ZEBEDEE API." />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" type="image/png" href="/favicon.png" />
-
-          <meta property="og:url" content="https://playground.dev.zebedee.cloud" />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="Dev Playground - ZEBEDEE API" />
-          <meta property="og:description" content="Open source starter kit for fullstack applications including a Dev Playground showcasing the many features available for Payins and Payouts on the ZEBEDEE API." />
-          <meta property="og:image" content="https://i.imgur.com/QvFJ7mq.png" />
-
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta property="twitter:domain" content="playground.dev.zebedee.cloud" />
-          <meta property="twitter:url" content="https://playground.dev.zebedee.cloud" />
-          <meta name="twitter:title" content="Dev Playground - ZEBEDEE API" />
-          <meta name="twitter:description" content="Open source starter kit for fullstack applications including a Dev Playground showcasing the many features available for Payins and Payouts on the ZEBEDEE API." />
-          <meta name="twitter:image" content="https://i.imgur.com/QvFJ7mq.png" />
+           <SocialHeadTags
+            title='Dev Playground - ZEBEDEE API'
+            description='Open source starter kit for fullstack applications including a Dev Playground showcasing the many features available for Payins and Payouts on the ZEBEDEE API.'
+            image='https://i.imgur.com/QvFJ7mq.png'
+            url='https://playground.dev.zebedee.cloud/playground'
+          />
         </Head>
         <main className={styles.main}>
           <div className={styles.description}>
