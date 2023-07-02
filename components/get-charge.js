@@ -7,6 +7,7 @@ import styles from '@/styles/Home.module.css'
 import { QR } from './qr-code';
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
+import { Label } from './label';
 
 export class GetChargeModule extends PureComponent {
   state = {
@@ -47,6 +48,7 @@ export class GetChargeModule extends PureComponent {
           Gets the details of a Charge by ID.
         </code>
         <div className={styles.divider} />
+        <Label label={'Charge ID'} hasMarginTop />
         <input
           value={id}
           placeholder='a123b258-bbaa-0047-b104-57d613a7b284'

@@ -7,6 +7,7 @@ import styles from '@/styles/Home.module.css'
 import { QR } from './qr-code';
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
+import { Label } from './label';
 
 export class DecodeChargeModule extends PureComponent {
   state = {
@@ -55,6 +56,7 @@ export class DecodeChargeModule extends PureComponent {
           Decodes a Lightning Network Invoice / Charge / Payment Request
         </code>
         <div className={styles.divider} />
+        <Label label={'Lightning Network Invoice / Payment Request'} hasMarginTop />
         <input
           value={charge}
           placeholder='lnbc100m....'

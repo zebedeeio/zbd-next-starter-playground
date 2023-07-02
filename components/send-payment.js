@@ -6,6 +6,7 @@ import styles from '@/styles/Home.module.css'
 // Components
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
+import { Label } from './label';
 
 export class SendPaymentModule extends PureComponent {
   state = {
@@ -51,6 +52,7 @@ export class SendPaymentModule extends PureComponent {
           Pays a Lightning Network Charge / Payment Request
         </code>
         <div className={styles.divider} />
+        <Label label={'Lightning Network Invoice / Payment Request'} hasMarginTop />
         <input
           value={charge}
           placeholder='lnbc100m....'

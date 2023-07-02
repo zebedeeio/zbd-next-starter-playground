@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 
 import styles from '@/styles/Home.module.css'
 import { ModuleButton } from './module-button';
+import { Label } from './label';
 
 const DynamicJSONViewer = dynamic(() => import('react-json-view'), {
   ssr: false,
@@ -64,7 +65,8 @@ export class ValidateLightningAddressModule extends PureComponent {
         </p>
         <code>Check the validity of a Lightning Address.</code>
         <div className={styles.divider} />
-        <input className={styles.input} value={address} onChange={this.handleAddressChange} />
+        <Label label={'Lightning Address'} hasMarginTop />
+        <input className={styles.input} value={address} placeholder={'andre@zbd.gg'} onChange={this.handleAddressChange} />
         <ModuleButton label={'Validate Address'} isLoading={isLoading} onClick={this.handleValidate} />
         {success && data && Object.keys(data).length > 0 && (
           <>

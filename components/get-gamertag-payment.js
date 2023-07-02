@@ -6,6 +6,7 @@ import styles from '@/styles/Home.module.css'
 // Components
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
+import { Label } from './label';
 
 export class GetGamertagPaymentModule extends PureComponent {
   state = {
@@ -46,6 +47,7 @@ export class GetGamertagPaymentModule extends PureComponent {
           Gets the details of a Gamertag Payment by ID.
         </code>
         <div className={styles.divider} />
+        <Label label={'Gamertag Payment ID'} hasMarginTop />
         <input
           value={id}
           placeholder='eb231253-bbef-4144-b734-57d613a7b284'

@@ -6,6 +6,7 @@ import styles from '@/styles/Home.module.css'
 // Components
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
+import { Label } from './label';
 
 export class IPAddressModule extends PureComponent {
   state = {
@@ -46,6 +47,7 @@ export class IPAddressModule extends PureComponent {
           Checks whether an IP Address is within a supported region by ZEBEDEE API.
         </code>
         <div className={styles.divider} />
+        <Label label={'IP Address (IPv4 only)'} hasMarginTop />
         <input
           value={charge}
           placeholder='12.112.198.14'

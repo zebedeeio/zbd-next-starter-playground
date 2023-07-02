@@ -7,6 +7,7 @@ import styles from '@/styles/Home.module.css'
 import { QR } from './qr-code';
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
+import { Label } from './label';
 
 export class CreateChargeModule extends PureComponent {
   state = {
@@ -62,12 +63,14 @@ export class CreateChargeModule extends PureComponent {
           Creates a Lightning Charge / Payment Request QR code.
         </code>
         <div className={styles.divider} />
+        <Label label={'Amount (in satoshis)'} hasMarginTop />
         <input
           value={amount}
-          placeholder='100 satoshis'
+          placeholder='100'
           className={styles.input}
           onChange={this.handleAmountChange}
         />
+        <Label label={'Description'} />
         <input
           value={description}
           placeholder='Pay me now!'

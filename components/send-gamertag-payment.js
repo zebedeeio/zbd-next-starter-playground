@@ -6,6 +6,7 @@ import styles from '@/styles/Home.module.css'
 // Components
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
+import { Label } from './label';
 
 export class SendGamertagPaymentModule extends PureComponent {
   state = {
@@ -62,12 +63,14 @@ export class SendGamertagPaymentModule extends PureComponent {
           Sends a Bitcoin payment to a ZBD Gamertag instantly.
         </code>
         <div className={styles.divider} />
+        <Label label={'Amount (in satoshis)'} hasMarginTop />
         <input
           value={amount}
-          placeholder='100 satoshis'
+          placeholder='100'
           className={styles.input}
           onChange={this.handleAmountChange}
         />
+        <Label label={'Lightning Address Recipient'} />
         <input
           value={gamertag}
           placeholder='andre@zbd.gg'

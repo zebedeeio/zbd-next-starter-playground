@@ -7,6 +7,7 @@ import styles from '@/styles/Home.module.css'
 import { QR } from './qr-code';
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
+import { Label } from './label';
 
 export class GetWithdrawalRequestModule extends PureComponent {
   state = {
@@ -47,6 +48,7 @@ export class GetWithdrawalRequestModule extends PureComponent {
           Gets the details of a Withdrawal Request by ID.
         </code>
         <div className={styles.divider} />
+        <Label label={'Withdrawal Request ID'} hasMarginTop />
         <input
           value={id}
           placeholder='eb231253-bbef-4144-b734-57d613a7b284'

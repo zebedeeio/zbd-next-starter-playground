@@ -39,9 +39,10 @@ export class BTCUSDRateModule extends PureComponent {
           Fetches the latest BTC USD exchange rate from ZEBEDEE API.
         </code>
         <div className={styles.divider} />
+        <br />
         <ModuleButton
           isLoading={isLoading}
-          label={'Submit'}
+          label={'Fetch BTC USD'}
           onClick={this.handleFetchBTCUSD}
         />
         {(successAndHasData) && (

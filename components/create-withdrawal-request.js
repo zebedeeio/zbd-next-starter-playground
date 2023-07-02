@@ -7,6 +7,7 @@ import styles from '@/styles/Home.module.css'
 import { QR } from './qr-code';
 import { JSONViewer } from './json-viewer';
 import { ModuleButton } from './module-button';
+import { Label } from './label';
 
 export class CreateWithdrawalRequestModule extends PureComponent {
   state = {
@@ -59,12 +60,14 @@ export class CreateWithdrawalRequestModule extends PureComponent {
           Creates a Withdrawal Request QR code.
         </code>
         <div className={styles.divider} />
+        <Label label={'Amount (in satoshis)'} hasMarginTop />
         <input
           value={amount}
-          placeholder='100 satoshis'
+          placeholder='100'
           className={styles.input}
           onChange={this.handleAmountChange}
         />
+        <Label label={'Description'} />
         <input
           value={description}
           placeholder='Give me Bitcoin now!'

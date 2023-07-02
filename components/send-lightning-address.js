@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 
 import styles from '@/styles/Home.module.css'
 import { ModuleButton } from './module-button';
+import { Label } from './label';
 
 const DynamicJSONViewer = dynamic(() => import('react-json-view'), {
   ssr: false,
@@ -76,17 +77,19 @@ export class SendLightningAddressModule extends PureComponent {
         </p>
         <code>Send Bitcoin directly to a Lightning Address.</code>
         <div className={styles.divider} />
+        <Label label={'Lightning Address'} hasMarginTop />
         <input  
           className={styles.input}
           value={address}
           placeholder={'andre@zbd.gg'}
           onChange={this.handleAddressChange}
         />
+        <Label label={'Amount (in satoshis)'} />
         <input
           type='numeric'
           value={amount}
           className={styles.input}
-          placeholder={'100 satoshis'}
+          placeholder={'100'}
           onChange={this.handleAmountChange}
         />
         <ModuleButton
