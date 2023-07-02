@@ -18,9 +18,14 @@ export class GetChargeModule extends PureComponent {
   };
 
   // Handle ID Change
-  handleIdChange = (event) => this.setState(() => ({
-    id: event.target.value
-  }));
+  handleIdChange = (event) => this.setState(() => {
+    let value = event.target.value;
+    if (value.includes('"')) {
+      value = value.replace(/"/g, '');
+    }
+
+    return { id: value };
+  });
 
   // Handle Get Charge
   handleGetCharge = async () => {

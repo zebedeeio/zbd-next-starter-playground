@@ -18,9 +18,14 @@ export class DecodeChargeModule extends PureComponent {
   };
 
   // Handle Amount Change
-  handleChargeChange = (event) => this.setState(() => ({
-    charge: event.target.value
-  }));
+  handleChargeChange = (event) => this.setState(() => {
+    let value = event.target.value;
+    if (value.includes('"')) {
+      value = value.replace(/"/g, '');
+    }
+
+    return { id: value };
+  });
 
   // Handle Create Withdrawal Request
   handleDecodeCharge = async () => {
