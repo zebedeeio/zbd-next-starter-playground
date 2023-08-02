@@ -1,7 +1,7 @@
 export const SocialHeadTags = ({ title, description, image, url }) => {
   return (
     <>
-      <title>{title}</title>
+      <title>{title || 'ZBD + Next.js'}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" type="image/png" href="/favicon.png" />
