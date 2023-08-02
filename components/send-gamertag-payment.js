@@ -37,7 +37,7 @@ export class SendGamertagPaymentModule extends PureComponent {
       body: JSON.stringify({
         amount: `${amount}000`,
         gamertag: gamertag,
-        description: 'ZEBEDEE API is fast!',
+        description: 'ZBD API is fast!',
       }),
     });
 

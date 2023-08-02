@@ -1,13 +1,13 @@
 // =================================================
-// Welcome to NextJS ZEBEDEE Starter
+// Welcome to NextJS ZBD Starter
 // =================================================
 //
 // The goal here is to showcase a simple example of
 // the @zbd/node library being used to interact with
-// the ZEBEDEE API on a NodeJS environment.
+// the ZBD API on a NodeJS environment.
 
 // Check `/pages/api/wallet` to see how simple it is
-// to fetch/post information to the ZEBEDEE API
+// to fetch/post information to the ZBD API
 
 // This index.js shows a simple way to fetch the
 // /api/wallet backend endpoint and showcase the
@@ -37,10 +37,10 @@ export default class ZBDNextJSStarter extends PureComponent {
       <>
         <Head>
           <SocialHeadTags
-            title='ZEBEDEE + Next.js Starter Kit - ZEBEDEE API'
-            description='Open source starter kit for fullstack applications built on Next.js framework using ZEBEDEE for instant global payments.'
+            title='ZBD + Next.js Starter Kit - ZBD API'
+            description='Open source starter kit for fullstack applications built on Next.js framework using ZBD for instant global payments.'
             image='https://i.imgur.com/B8TuFvL.png'
-            url='https://playground.dev.zebedee.cloud'
+            url='https://nextjs.zbd.dev'
           />
         </Head>
         <main className={styles.main}>
@@ -61,8 +61,8 @@ export default class ZBDNextJSStarter extends PureComponent {
           <div className={styles.center}>
             <Image
               className={styles.logo}
-              src="/zbd-nextjs.png"
-              alt="ZEBEDEE + Next.js"
+              src="/zbd-next.png"
+              alt="ZBD + Next.js"
               width={185}
               height={99.61538462}
               priority
@@ -94,12 +94,12 @@ export default class ZBDNextJSStarter extends PureComponent {
                 Learn <span>-&gt;</span>
               </h2>
               <p className={inter.className}>
-                Find in-depth information about ZEBEDEE features and&nbsp;API.
+                Find in-depth information about ZBD features and&nbsp;API.
               </p>
             </a>
   
             <a
-              href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzebedeeio%2Fnextjs-zebedee-starter&env=ZEBEDEE_API_KEY&envDescription=Your%20ZEBEDEE%20project%20API%20key&demo-title=ZEBEDEE%20%2B%20Next.js%20Starter&demo-description=Starter%20kit%20for%20using%20ZEBEDEE%20API%20with%20Next.js%20fullstack%20applications&demo-url=https%3A%2F%2Fnextjs-zebedee-starter.vercel.app%2F&demo-image=https%3A%2F%2Fi.imgur.com%2FNf8wRgv.png"
+              href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzebedeeio%2Fnextjs-zebedee-starter&env=ZBD_API_KEY&envDescription=Your%20ZBD%20project%20API%20key&demo-title=ZBD%20%2B%20Next.js%20Starter&demo-description=Starter%20kit%20for%20using%20ZBD%20API%20with%20Next.js%20fullstack%20applications&demo-url=https%3A%2F%2Fnextjs-zebedee-starter.vercel.app%2F&demo-image=https%3A%2F%2Fi.imgur.com%2FNf8wRgv.png"
               className={styles.card}
               target="_blank"
               rel="noopener noreferrer"
@@ -108,7 +108,7 @@ export default class ZBDNextJSStarter extends PureComponent {
                 Deploy <span>-&gt;</span>
               </h2>
               <p className={inter.className}>
-                Instantly deploy this ZEBEDEE starter kit to Vercel.
+                Instantly deploy this ZBD starter kit to Vercel.
               </p>
             </a>
   
@@ -122,7 +122,7 @@ export default class ZBDNextJSStarter extends PureComponent {
                 @zbd/node <span>-&gt;</span>
               </h2>
               <p className={inter.className}>
-                Learn more about the ZEBEDEE SDK for NodeJS.
+                Learn more about the ZBD SDK for NodeJS.
               </p>
             </a>
           </div>

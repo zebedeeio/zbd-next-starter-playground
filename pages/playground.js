@@ -1,13 +1,13 @@
 // =================================================
-// Welcome to NextJS ZEBEDEE Starter
+// Welcome to NextJS ZBD Starter
 // =================================================
 //
 // The goal here is to showcase a simple example of
 // the @zbd/node library being used to interact with
-// the ZEBEDEE API on a NodeJS environment.
+// the ZBD API on a NodeJS environment.
 
 // Check `/pages/api/wallet` to see how simple it is
-// to fetch/post information to the ZEBEDEE API
+// to fetch/post information to the ZBD API
 
 // This index.js shows a simple way to fetch the
 // /api/wallet backend endpoint and showcase the
@@ -49,16 +49,16 @@ export default class ZBDNextJSStarter extends PureComponent {
       <>
         <Head>
            <SocialHeadTags
-            title='Dev Playground - ZEBEDEE API'
-            description='Open source starter kit for fullstack applications including a Dev Playground showcasing the many features available for Payins and Payouts on the ZEBEDEE API.'
+            title='Dev Playground - ZBD API'
+            description='Open source starter kit for fullstack applications including a Dev Playground showcasing the many features available for Payins and Payouts on the ZBD API.'
             image='https://i.imgur.com/QvFJ7mq.png'
-            url='https://playground.dev.zebedee.cloud/playground'
+            url='https://nextjs.zbd.dev/playground'
           />
         </Head>
         <main className={styles.main}>
           <div className={styles.description}>
             <p>
-              Playground Modules for <b>ZEBEDEE API</b>
+              Playground Modules for <b>ZBD API</b>
             </p>
             <div>
               <WalletBalanceModule />

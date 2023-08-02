@@ -36,7 +36,7 @@ export class BTCUSDRateModule extends PureComponent {
           Get BTCUSD Exchange Rate
         </p>
         <code>
-          Fetches the latest BTC USD exchange rate from ZEBEDEE API.
+          Fetches the latest BTC USD exchange rate from ZBD API.
         </code>
         <div className={styles.divider} />
         <br />

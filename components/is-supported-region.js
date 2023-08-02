@@ -44,7 +44,7 @@ export class IPAddressModule extends PureComponent {
           Supported Region Checker
         </p>
         <code>
-          Checks whether an IP Address is within a supported region by ZEBEDEE API.
+          Checks whether an IP Address is within a supported region by ZBD API.
         </code>
         <div className={styles.divider} />
         <Label label={'IP Address (IPv4 only)'} hasMarginTop />

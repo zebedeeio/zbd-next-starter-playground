@@ -1,4 +1,4 @@
-<h1 align='center'>ZEBEDEE Next.js Dev Playground</h1>
+<h1 align='center'>ZBD Next.js Dev Playground</h1>
 
 <div align='center'>
 <img width='900' src='https://i.imgur.com/AO87Pz0.png' />
@@ -6,7 +6,7 @@
 
 <div align='center'>
 
-Developer Playground for testing the ZEBEDEE API
+Developer Playground for testing the ZBD API
 
 <br />
 
@@ -19,7 +19,7 @@ Developer Playground for testing the ZEBEDEE API
 
 
 <p align='center'>
-  <a href='https://playground.dev.zebedee.cloud'><strong>Live Dev Playground</strong></a> · <a href='https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzebedeeio%2Fnextjs-zebedee-starter&env=ZEBEDEE_API_KEY&envDescription=Your%20ZEBEDEE%20project%20API%20key&demo-title=ZEBEDEE%20%2B%20Next.js%20Starter&demo-description=Starter%20kit%20for%20using%20ZEBEDEE%20API%20with%20Next.js%20fullstack%20applications&demo-url=https%3A%2F%2Fnextjs-zebedee-starter.vercel.app%2F&demo-image=https%3A%2F%2Fi.imgur.com%2FNf8wRgv.png'><strong>1-Click Deploy</strong></a> · <a href='https://dashboard.zebedee.io'><strong>Developer Dashboard</strong></a>
+  <a href='https://nextjs.zbd.dev'><strong>Live Dev Playground</strong></a> · <a href='https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzebedeeio%2Fnextjs-zebedee-starter&env=ZBD_API_KEY&envDescription=Your%20ZBD%20project%20API%20key&demo-title=ZBD%20%2B%20Next.js%20Starter&demo-description=Starter%20kit%20for%20using%20ZBD%20API%20with%20Next.js%20fullstack%20applications&demo-url=https%3A%2F%2Fnextjs-zebedee-starter.vercel.app%2F&demo-image=https%3A%2F%2Fi.imgur.com%2FNf8wRgv.png'><strong>1-Click Deploy</strong></a> · <a href='https://dashboard.zebedee.io'><strong>Developer Dashboard</strong></a>
 </p>
 
 </div>
@@ -29,15 +29,15 @@ Developer Playground for testing the ZEBEDEE API
 <div align='left'>
 <br />
 
-This is a starter kit for building fullstack applications using Next.js react framework alongside ZEBEDEE for global instantaneous Bitcoin payments. 
+This is a starter kit for building fullstack applications using Next.js react framework alongside ZBD for global instantaneous Bitcoin payments. 
 
-This starter kit also emcompasses a Dev Playground (see `/pages/playground.js`) where ZEBEDEE-enabled modules can be used / tested. 
+This starter kit also emcompasses a Dev Playground (see `/pages/playground.js`) where ZBD-enabled modules can be used / tested. 
 
 ![ ](https://i.imgur.com/3WqkI62.png)
 
 <div align='center'>
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzebedeeio%2Fnextjs-zebedee-starter&env=ZEBEDEE_API_KEY&envDescription=Your%20ZEBEDEE%20project%20API%20key&demo-title=ZEBEDEE%20%2B%20Next.js%20Starter&demo-description=Starter%20kit%20for%20using%20ZEBEDEE%20API%20with%20Next.js%20fullstack%20applications&demo-url=https%3A%2F%2Fnextjs-zebedee-starter.vercel.app%2F&demo-image=https%3A%2F%2Fi.imgur.com%2FNf8wRgv.png)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzebedeeio%2Fnextjs-zebedee-starter&env=ZBD_API_KEY&envDescription=Your%20ZBD%20project%20API%20key&demo-title=ZBD%20%2B%20Next.js%20Starter&demo-description=Starter%20kit%20for%20using%20ZBD%20API%20with%20Next.js%20fullstack%20applications&demo-url=https%3A%2F%2Fnextjs-zebedee-starter.vercel.app%2F&demo-image=https%3A%2F%2Fi.imgur.com%2FNf8wRgv.png)
 
 </div>
 
@@ -52,10 +52,10 @@ npm run dev
 yarn dev
 ```
 
-Then you must create a `.env.local` file in the root directory with your ZEBEDEE API key, like so:
+Then you must create a `.env.local` file in the root directory with your ZBD API key, like so:
 
 ```bash
-ZEBEDEE_API_KEY=xxxxxxxxxxxxxxxx
+ZBD_API_KEY=xxxxxxxxxxxxxxxx
 ```
 
 You may also simply rename the `.env.local.example` file to `.env.local`.
@@ -80,17 +80,17 @@ You can start editing the project page by modifying `pages/index.js`. There is a
 
 Specifically, check out `/pages/index.js` and `/pages/playground.js` as they are the two main pages available in this starter kit.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) and effectively make up your project's backend APIs. The backend API is using the [`@zbd/node`](https://github.com/zebedeeio/zbd-node) SDK library for Node.js to interact with the ZEBEDEE API.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) and effectively make up your project's backend APIs. The backend API is using the [`@zbd/node`](https://github.com/zebedeeio/zbd-node) SDK library for Node.js to interact with the ZBD API.
 
-The main goal for this starter kit is to provide ample resources around source code that can be used to speed up your development of ZEBEDEE-powered applications.
+The main goal for this starter kit is to provide ample resources around source code that can be used to speed up your development of ZBD-powered applications.
 
 ## Learn More
 
-To learn more about ZEBEDEE, take a look at the following resources:
+To learn more about ZBD, take a look at the following resources:
 
-- [ZEBEDEE Documentation Portal](https://docs.zebedee.io) - documentation, guides, and walkthroughs
-- [GitHub](https://github.com/zebedeeio) - ZEBEDEE's org GitHub account with lots of example source code and open source SDK libraries
-- [Discord Dev Chat](https://discord.gg/zbd) - join other developers discussing ZEBEDEE integration topics
+- [ZBD Documentation Portal](https://docs.zebedee.io) - documentation, guides, and walkthroughs
+- [GitHub](https://github.com/zebedeeio) - ZBD's org GitHub account with lots of example source code and open source SDK libraries
+- [Discord Dev Chat](https://discord.gg/zbd) - join other developers discussing ZBD integration topics
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -99,6 +99,6 @@ To learn more about Next.js, take a look at the following resources:
 
 ## Deploy on Vercel
 
-To make the most out of this Playground, deploy the project to Vercel using the Deploy button below and pass your ZEBEDEE API Key in the settings. This will spin up an instance of the Dev Playground connected to YOUR ZEBEDEE account.
+To make the most out of this Playground, deploy the project to Vercel using the Deploy button below and pass your ZBD API Key in the settings. This will spin up an instance of the Dev Playground connected to YOUR ZBD account.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzebedeeio%2Fnextjs-zebedee-starter&env=ZEBEDEE_API_KEY&envDescription=Your%20ZEBEDEE%20project%20API%20key&demo-title=ZEBEDEE%20%2B%20Next.js%20Starter&demo-description=Starter%20kit%20for%20using%20ZEBEDEE%20API%20with%20Next.js%20fullstack%20applications&demo-url=https%3A%2F%2Fnextjs-zebedee-starter.vercel.app%2F&demo-image=https%3A%2F%2Fi.imgur.com%2FNf8wRgv.png)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzebedeeio%2Fnextjs-zebedee-starter&env=ZBD_API_KEY&envDescription=Your%20ZBD%20project%20API%20key&demo-title=ZBD%20%2B%20Next.js%20Starter&demo-description=Starter%20kit%20for%20using%20ZBD%20API%20with%20Next.js%20fullstack%20applications&demo-url=https%3A%2F%2Fnextjs-zebedee-starter.vercel.app%2F&demo-image=https%3A%2F%2Fi.imgur.com%2FNf8wRgv.png)

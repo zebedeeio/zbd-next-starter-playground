@@ -1,15 +1,15 @@
 import { zbd as ZBD } from '@zbd/node';
 
 // Get environment variable
-const ZEBEDEE_API_KEY = process.env.ZEBEDEE_API_KEY;
+const ZBD_API_KEY = process.env.ZBD_API_KEY;
 
 // New ZBD client instance
-const zbd = new ZBD(ZEBEDEE_API_KEY);
+const zbd = new ZBD(ZBD_API_KEY);
 
 // Export client
 export const getZBD = (res) => {
   // Ensure API Key is passed
-  if (!ZEBEDEE_API_KEY || ZEBEDEE_API_KEY === '') {
+  if (!ZBD_API_KEY || ZBD_API_KEY === '') {
     return res.status(401).json({
       success: false,
       message: '@zbd/node config: No API Key provided.'
